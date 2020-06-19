@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>An Introduction to Jekyll</title>
+<meta name="author" content="Mythreyi Ramesh"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/css/theme/serif.css" id="theme"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h2>An Introduction to Jekyll</h2><h3>Mythreyi Ramesh</h3><h4>June 20, 2020</h4>
+</section>
+<aside class="notes">
+<p>
+A quick introduction to Jekyll!
+</p>
+
+</aside>
+
+<section>
+<section id="slide-org283f77f">
+<h2 id="org283f77f">What are Static Websites?</h2>
+<ul>
+<li>No <i>databases</i></li>
+<li>Fast, Secure.</li>
+<li>Light footprint</li>
+
+</ul>
+<aside class="notes">
+<p>
+Compared to websites that are served dynamically, static websites are faster and more secure.
+The main reason is the lack of <i>databases</i>. HTML files are created for each page in the website.
+The footprint is light and it serves best for personal websites and blogs.
+</p>
+
+</aside>
+
+</section>
+</section>
+<section>
+<section id="slide-org406051f">
+<h2 id="org406051f">What is Jekyll?</h2>
+<p>
+A static site generator based on <b><i>Ruby</i></b>
+</p>
+<aside class="notes">
+<p>
+Jekyll is a static site generator based on the language <b>Ruby</b>. Ruby is a scripting language like Python, but is supposed to be even more user-friendly.
+</p>
+
+</aside>
+</section>
+<section id="slide-orgec10631">
+<h3 id="orgec10631">What is a static site generator?</h3>
+<ul>
+<li>Automatically generate HTML files for a site.</li>
+<li>Easily add content (eg: using <b>Markdown</b>)</li>
+
+</ul>
+<aside class="notes">
+<p>
+To create a website, one needs a bunch of HTML pages. But, usually, there&rsquo;s also a fair bit of CSS and JavaScript.A static site generator takes care of the <i>boring</i> parts and lets you worry only about the <i>content</i>. The content is usually written in user-friendly markup languages like <b>Markdown</b>.
+</p>
+
+</aside>
+</section>
+<section id="slide-org0f7f4ee">
+<h3 id="org0f7f4ee">Is Jekyll unique?</h3>
+<p>
+No, there are other options!
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Jekyll</td>
+<td class="org-left">Ruby</td>
+</tr>
+
+<tr>
+<td class="org-left">Hugo</td>
+<td class="org-left">Go</td>
+</tr>
+
+<tr>
+<td class="org-left">Pelican</td>
+<td class="org-left">Python</td>
+</tr>
+</tbody>
+</table>
+<p>
+Jekyll is <i>popular</i>; <b>strong</b> community!
+</p>
+<aside class="notes">
+<p>
+Jekyll is definitely the most popular, followed by Hugo. Jekyll has a strong community, which is really important.
+</p>
+
+</aside>
+
+</section>
+</section>
+<section>
+<section id="slide-org04a6019">
+<h2 id="org04a6019">Getting Started with Jekyll</h2>
+<ul>
+<li>Follow installation instructions from <a href="https://jekyllrb.com">https://jekyllrb.com</a>. Briefly:
+<ul>
+<li>Install Ruby</li>
+<li>Install Jekyll</li>
+<li>(Optional) Install Git</li>
+
+</ul></li>
+
+</ul>
+<aside class="notes">
+<p>
+One first needs to install Jekyll. It&rsquo;s possible on all platforms. Version controlling using Git will also be very useful (this enables hosting via GitHub too)
+</p>
+
+</aside>
+
+</section>
+</section>
+<section>
+<section id="slide-org57266f0">
+<h2 id="org57266f0">Live Demo</h2>
+<p>
+<i>Fingers crossed!</i>
+</p>
+</section>
+<section id="slide-orgca9b25a">
+<h3 id="orgca9b25a">In case that&rsquo;s taking longer to load</h3>
+<p>
+Let&rsquo;s talk about gems.
+</p>
+<ul>
+<li>&ldquo;packages&rdquo;; <a href="https://rubygems.org">https://rubygems.org</a></li>
+<li>Themes can be gem-based</li>
+
+</ul>
+</section>
+<section id="slide-org7f0e779">
+<h3 id="org7f0e779">If it&rsquo;s taking even longer</h3>
+<p>
+Let&rsquo;s talk about bundles.
+</p>
+<ul>
+<li>It&rsquo;s exactly what it sounds like; <a href="https://bundler.io">https://bundler.io</a></li>
+<li>Very useful; simple versions management</li>
+
+</ul>
+</section>
+<section id="slide-orgfcd95ca">
+<h3 id="orgfcd95ca">Still longer?</h3>
+<p>
+Time to copy-paste the result from a previous run.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org99b00d2">
+<h2 id="org99b00d2">Recap</h2>
+<p>
+Here&rsquo;s a quick summary of the demo:
+</p>
+</section>
+<section id="slide-org6d48452">
+<h3 id="org6d48452">Creating a new site</h3>
+<ul>
+<li>The command to execute is <code>jekyll new &lt;name-of-the-site&gt;</code></li>
+<li>To locally serve the new website, use <code>bundle exec jekyll serve</code></li>
+
+</ul>
+</section>
+<section id="slide-orgf13ebcb">
+<h3 id="orgf13ebcb">Modifying the site</h3>
+<ul>
+<li>Change <code>_config.yml</code> to change site setttings.
+<ul>
+<li>Must restart server after updating this file!</li>
+
+</ul></li>
+<li>Add new posts to <code>_posts</code> directory.
+<ul>
+<li>Make sure to follow the correct naming scheme</li>
+<li>The frontmatter is important</li>
+
+</ul></li>
+<li>Create pages using the <code>page</code> layout</li>
+<li>Add content using Markdown.
+<ul>
+<li>It&rsquo;s okay to add HTML in the middle too!</li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-org343d93c">
+<h3 id="org343d93c">Themes, GitHub Pages and more!</h3>
+<ul>
+<li>Use <code>gem</code> based themes or custom themes.</li>
+<li>Host on GitHub Pages (for free)
+<ul>
+<li>Be sure to check if you&rsquo;re using a project site or your user site!</li>
+
+</ul></li>
+<li>Many many more things to do! Check <a href="https://jekyllrb.com">https://jekyllrb.com</a> for a start.</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org810d115">
+<h2 id="org810d115">Have fun!</h2>
+<p>
+Questions? Comments?
+</p>
+<aside class="notes">
+<p>
+I was a big noob, and I paid for it when I had to update my software. I want to help you as you get started. Do reach out.
+</p>
+
+</aside>
+
+</section>
+</section>
+<section>
+<section id="slide-orged1619c">
+<h2 id="orged1619c">Not everything is awesome.</h2>
+<ul>
+<li>Check: <a href="https://medium.com/@mythreyi/the-agony-of-setting-up-jekyll-on-macos-catalina-aedd0a536ae">https://medium.com/@mythreyi/the-agony-of-setting-up-jekyll-on-macos-catalina-aedd0a536ae</a></li>
+<li>The learning curve was deceptively simple, but it&rsquo;s possible that you&rsquo;ll run into many issues as you learn. Keep at it, it will get better eventually.</li>
+<li>I&rsquo;m planning to learn Hugo: <a href="https://gohugo.io">https://gohugo.io</a>. If you&rsquo;re interested in joining, let me know.</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/lib/js/head.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/js/reveal.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'convex', // see README of reveal.js for options
+transitionSpeed: 'default',
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+</script>
+</body>
+</html>
