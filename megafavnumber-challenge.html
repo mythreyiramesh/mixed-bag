@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>An intrinsic limitation of numbers on computers - #MegaFavNumber</title>
+<meta name="author" content="Mythreyi Ramesh"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/css/theme/moon.css" id="theme"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h2>An intrinsic limitation of numbers on computers - #MegaFavNumber</h2>
+</section>
+<aside class="notes">
+<p>
+My contribution to the #MegaFavNumber playlist.
+</p>
+
+</aside>
+
+<section>
+<section id="slide-orgfba443d">
+<h2 id="orgfba443d">My MegaFavNumber</h2>
+<aside class="notes">
+<p>
+Overall sentiment: we can&rsquo;t solve finite precision, but we can work around it, and <code>binary64</code> does it well.
+</p>
+
+</aside>
+
+<p>
+\(9007199254740993\)
+</p>
+
+<p>
+It is the <i>smallest</i> natural number that cannot be stored in the standard <code>double-precision</code> format.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org583aba3">
+<h2 id="org583aba3">What does <code>double</code> mean?</h2>
+</section>
+<section>
+
+<p>
+Computers usually store <i>binary</i> numbers.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Decimal</th>
+<th scope="col" class="org-left">Binary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>1</code></td>
+<td class="org-left"><code>1</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>2</code></td>
+<td class="org-left"><code>10</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>3</code></td>
+<td class="org-left"><code>11</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>4</code></td>
+<td class="org-left"><code>100</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>8</code></td>
+<td class="org-left"><code>1000</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>16</code></td>
+<td class="org-left"><code>10000</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>32</code></td>
+<td class="org-left"><code>100000</code></td>
+</tr>
+</tbody>
+</table>
+
+</section>
+<section>
+
+<p>
+The standard format for <code>double</code> is called <code>binary64</code> by IEEE.
+</p>
+
+<p>
+Floating point numbers are stored as \(m \times 2^n\).
+</p>
+
+<ul>
+<li>1 bit stores the sign of \(m\)</li>
+<li>11 bits store \(n\)</li>
+<li>52 bits store \(m\)</li>
+
+</ul>
+
+</section>
+<section>
+
+<p>
+What happens when \(m\) can&rsquo;t be stored in 52 bits?
+</p>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org4039dd4">
+<h2 id="org4039dd4">Exploring the neighbourhood of \(2^{53}\)</h2>
+</section>
+<section>
+<div class="org-src-container">
+
+<pre  class="src src-python"><span style="color: #f8f8f2;">power</span> = <span style="color: #bd93f9; font-weight: bold;">53</span>
+
+<span style="color: #ff79c6;">for</span> n <span style="color: #ff79c6;">in</span> <span style="color: #ffb86c;">range</span>(<span style="color: #bd93f9; font-weight: bold;">2</span>**power-<span style="color: #bd93f9; font-weight: bold;">5</span>,<span style="color: #bd93f9; font-weight: bold;">2</span>**power+<span style="color: #bd93f9; font-weight: bold;">5</span>):
+    <span style="color: #ff79c6;">print</span>(n,<span style="color: #f1fa8c;">"=="</span>,<span style="color: #ffb86c;">float</span>(n),end=<span style="color: #f1fa8c;">" =&gt; "</span>)
+    <span style="color: #ff79c6;">print</span>(n == <span style="color: #ffb86c;">float</span>(n))
+</pre>
+</div>
+
+<pre class="example">
+9007199254740987 == 9007199254740987.0 =&gt; True
+9007199254740988 == 9007199254740988.0 =&gt; True
+9007199254740989 == 9007199254740989.0 =&gt; True
+9007199254740990 == 9007199254740990.0 =&gt; True
+9007199254740991 == 9007199254740991.0 =&gt; True
+9007199254740992 == 9007199254740992.0 =&gt; True
+9007199254740993 == 9007199254740992.0 =&gt; False
+9007199254740994 == 9007199254740994.0 =&gt; True
+9007199254740995 == 9007199254740996.0 =&gt; False
+9007199254740996 == 9007199254740996.0 =&gt; True
+</pre>
+
+</section>
+<section>
+<p>
+\(9007199254740993 = 2^{53} + 1 = 1.00000000 \dots 01 \times 2^{53}\)
+</p>
+
+<p>
+There are \(52\) zeros and the last digit (\(1\)) cannot be stored!
+</p>
+
+<p>
+<code>float(9007199254740993) = 9007199254740992.0</code>
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org728b54b">
+<h2 id="org728b54b">Takeaways</h2>
+<p>
+We only have finite precision no matter which format we store numbers in.
+</p>
+
+</section>
+<section>
+<p>
+<i>Good thing</i>: numbers are well-represented for most practical purposes!
+</p>
+
+</section>
+<section>
+<p>
+<i>Then, there is symbolic computing.</i>
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org876451f">
+<h2 id="org876451f">Food For Thought</h2>
+<div class="org-src-container">
+
+<pre  class="src src-python"><span style="color: #ff79c6;">print</span>(<span style="color: #bd93f9; font-weight: bold;">0.1</span>+<span style="color: #bd93f9; font-weight: bold;">0.1</span>+<span style="color: #bd93f9; font-weight: bold;">0.1</span> == <span style="color: #bd93f9; font-weight: bold;">0.3</span>)
+</pre>
+</div>
+
+<pre class="example">
+False
+</pre>
+
+
+</section>
+<section>
+<div class="org-src-container">
+
+<pre  class="src src-python"><span style="color: #ff79c6;">print</span>(<span style="color: #bd93f9; font-weight: bold;">0.1</span>+<span style="color: #bd93f9; font-weight: bold;">0.1</span>+<span style="color: #bd93f9; font-weight: bold;">0.1</span>)
+<span style="color: #ff79c6;">print</span>(<span style="color: #bd93f9; font-weight: bold;">0.3</span>)
+</pre>
+</div>
+
+<pre class="example">
+0.30000000000000004
+0.3
+</pre>
+
+
+<p>
+How does finite precision explain this?
+</p>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/js/reveal.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'convex', // see README of reveal.js for options
+transitionSpeed: 'default',
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+</script>
+</body>
+</html>
